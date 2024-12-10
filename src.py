@@ -55,10 +55,7 @@ for i in range(8):
   bin_I = get_binaried_image(I, 0.38)
   labels = measure.label(bin_I)
   regions = measure.regionprops(labels)
-  filtered_regions = [
-      region for region in regions 
-      if region.major_axis_length / region.minor_axis_length < 2  # Ajuster le seuil selon les besoins
-      ]
+  filtered_regions = [region for region in regions if region.eccentricity < 0.8]
   sorted_regions = sorted(filtered_regions, key=lambda r: r.area, reverse=True)[:6]
   sorted_regions = sorted(sorted_regions, key=lambda r: r.centroid[1])
   numbers_labels = {region.label for region in sorted_regions}
