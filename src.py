@@ -71,7 +71,7 @@ for i in range(8):
     
 
   axs[i].imshow(filtered_I, cmap='gray')
-  axs[i].set_title(f'compteur-{i+1}')
+  axs[i].set_title(f'compteur-{i+1} : {nombre_final}')
   axs[i].axis('off')
 
 plt.show()
